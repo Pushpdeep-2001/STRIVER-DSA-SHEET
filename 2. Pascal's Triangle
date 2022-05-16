@@ -1,0 +1,30 @@
+ vector<vector<int>> generate(int numRows) {
+        int n=numRows;
+        //make a 2D vector of size n
+        
+        vector<vector<int>>v(n);
+        
+        // 'i' is no of rows and 'j' is col in that particular row
+        
+        for(int i=0;i<n;i++)
+        {
+            v[i].resize(i+1);
+            
+            //the size of row is changed to i+1 bcoz initialyy its size is 0
+            
+            for(int j=0;j<=i;j++)
+            {
+                if(j==0 or j==i)   //from the test cases we have observed this fact
+                {
+                    v[i][j]=1;
+                }
+                else
+                {
+                    v[i][j]=v[i-1][j-1]+v[i-1][j]; 
+                }
+            }
+        }
+        
+        return v;
+        
+    }
