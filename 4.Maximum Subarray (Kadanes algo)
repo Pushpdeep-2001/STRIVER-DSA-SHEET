@@ -1,0 +1,19 @@
+int maxSubArray(vector<int>& nums) {
+        int n=nums.size();
+    
+        int cs=0;
+        // we have taken a variable largest which will contain the largest sum that we have got till any point.
+        // cs is used to store sum of all elements.
+        int largest=INT_MIN;   
+        for(int i=0;i<n;i++)
+        {
+            cs=cs+nums[i];
+            largest=max(largest,cs);
+            if(cs<0)
+            {
+                cs=0;      //this function is imp to undersstand 
+            }
+        }
+        
+        return largest;
+    }
