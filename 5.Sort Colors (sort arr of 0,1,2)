@@ -1,0 +1,31 @@
+ // this same mehod can be used to swap array of only two element with only l,h.
+    void sortColors(vector<int>& nums) {
+        int n=nums.size();
+        // we have declared 3 variable 
+        int l=0;
+        int m=0;
+        int h=n-1;
+        while(m<=h)
+        {
+            // if nums[m]==0 then both m and l will be incremented by 1.          
+            if(nums[m]==0)
+            {
+                swap(nums[l],nums[m]);
+                m++;
+                l++;
+            }
+            else
+            if(nums[m]==1)   // if nums[m]==1 then no swapping m is incremented.
+            {
+                m++;
+            }
+            else
+            if(nums[m]==2)
+            {
+                swap(nums[m],nums[h]);   //only h is decremented and 2 is swapped with h element.
+                h--;
+            }
+        }
+        
+        
+    }
