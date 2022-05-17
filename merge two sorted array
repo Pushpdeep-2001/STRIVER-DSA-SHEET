@@ -1,0 +1,37 @@
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+       vector<int>v;
+        int i=0;
+        int j=0;
+        while(i<m and j<n)
+        {
+            if(nums1[i]<=nums2[j])
+            {
+                v.push_back(nums1[i]);
+                i++;
+            }
+            else
+                if(nums1[i]>nums2[j])
+                {
+                    v.push_back(nums2[j]);
+                    j++;
+                }
+        }
+        
+        while(i<m)    //using this while loop we have pushed all the elements of nums1 into v;
+        {
+            v.push_back(nums1[i]);
+            i++;
+        }
+        
+        while(j<n)    //using this loop we have pushed all the elements of nums2 into v;
+        {
+            v.push_back(nums2[j]);
+            j++;
+        }
+        
+        // now put all the elements of v into nums1 whose size is already (m+n)
+        for(int p=0;p<v.size();p++) 
+        {
+            nums1[p]=v[p];
+        }
+    }
