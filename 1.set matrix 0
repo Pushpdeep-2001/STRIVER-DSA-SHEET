@@ -1,0 +1,41 @@
+void setZeroes(vector<vector<int>>& matrix) {
+
+        //we will make two dummy arrays R,C
+        
+        vector<int> R(matrix.size(),1);       
+        vector<int> C(matrix[0].size(),1);
+        
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=0;j<matrix[i].size();j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    //if any element is 0 then dummy arrays will also get 0 at that positions.
+                    
+                    R[i]=0;
+                    C[j]=0;
+                }
+            }
+        }
+        
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=0;j<matrix[i].size();j++)
+            {
+                //if any elemet of row dummy array or col dummy array is 0 then put that     element in matrix as zero
+                
+                if(R[i]==0 or C[j]==0)
+                {
+                    matrix[i][j]=0;
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
