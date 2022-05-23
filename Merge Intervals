@@ -1,0 +1,31 @@
+vector<vector<int>> merge(vector<vector<int>>& intervals) {
+
+        // first os all ask the interviewer weather the given array of intervals is sorted or not if not then sort it 
+        
+        sort (intervals.begin(),intervals.end());                //O(NlogN)
+        vector <vector<int>> v;
+        vector <int> temp=intervals[0];
+        
+        if(intervals.size()==0)
+        {
+            return v;
+        }
+        
+        for(auto it : intervals)                                 //O(N)
+        {
+            if(it[0]<=temp[1])
+            {
+                temp[1]=max(it[1],temp[1]);
+            }
+            else
+            {
+                v.push_back(temp);
+                temp=it;
+            }
+        }
+        
+        v.push_back(temp);
+        return v;
+        
+        
+    }
