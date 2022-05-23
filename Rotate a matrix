@@ -1,0 +1,28 @@
+void rotate(vector<vector<int>>& matrix) {
+   
+        //first of all the transpose of a matrix swap(mat[i][j],mat[j][i])
+        
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=i;j<matrix[0].size();j++)
+            {
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+        
+        //now we only need to swap first col with last  col
+        
+        for(int i=0;i<matrix.size();i++)
+        {
+            int p=0;
+            int q=matrix.size()-1;
+            while(p<q)
+            {
+               swap(matrix[i][p],matrix[i][q]);
+                ++p;
+                --q;
+            }
+        }
+        
+        
+    }
